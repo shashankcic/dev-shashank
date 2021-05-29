@@ -4,6 +4,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import Home from './components/Home';
 import About from './components/About';
 import Blog from './components/Blog';
@@ -11,8 +12,11 @@ import Page404 from './components/Page404';
 
 
 function App() {
+  ReactGA.initialize('UA-148397600-2');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <Router>
+      <div>
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -27,6 +31,7 @@ function App() {
           <Page404 />
         </Route>
       </Switch>
+      </div>
     </Router>
   );
 }
