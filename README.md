@@ -1,3 +1,7 @@
+# Projects by Shashank
+
+This is a small collection of projects made by me to learn the basics and working.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
