@@ -8,6 +8,7 @@ import ReactGA from 'react-ga';
 import Home from './components/Home';
 import About from './components/About';
 import Blog from './components/Blog';
+import Projects from './components/Projects';
 import Page404 from './components/Page404';
 
 
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route exact path='/blog'>
           <Blog />
+        </Route>
+        <Route exact path='/projects'>
+          <Projects />
         </Route>
         <Route>
           <Page404 />
