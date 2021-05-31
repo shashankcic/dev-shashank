@@ -8,8 +8,9 @@ import ReactGA from 'react-ga';
 import Home from './components/Home';
 import About from './components/About';
 import Blog from './components/Blog';
-import Projects from './components/Projects';
+import Project from './components/Project';
 import Page404 from './components/Page404';
+import initial404Images from './data/initial404Images';
 import './App.css';
 
 
@@ -23,17 +24,17 @@ function App() {
         <Route exact path='/'>
           <Home />
         </Route>
-        <Route exact path='/about'>
+        <Route path='/about'>
           <About />
         </Route>
-        <Route exact path='/blog'>
+        <Route path='/blog'>
           <Blog />
         </Route>
-        <Route exact path='/projects'>
-          <Projects />
+        <Route path='/projects'>
+          <Project />
         </Route>
-        <Route>
-          <Page404 />
+        <Route path="*">
+          <Page404 images={initial404Images}/>
         </Route>
       </Switch>
       </div>
