@@ -1,21 +1,68 @@
 import React  from 'react';
 import { Link } from 'react-router-dom';
 
+import {
+  Navbar,
+  Nav,
+  Container,
+  Form,
+  Row,
+  Col,
+  Button,
+  FormControl
+} from 'react-bootstrap';
+
 function Header() {
-	
+  // const [menuOpen, toggleMenuOpen] = React.useState(false);
   return(
-		<div className="bg-white black-80 tc pv4 avenir">
-      <h1 className="mt2 mb0 baskerville i fw1 f1">Shashank</h1>
-      <h2 className="mt2 mb0 f6 fw4 ttu tracked">My Projects</h2>
-      <nav className="bt bb tc mw7 center mt4">
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" to='/'>Home</Link>
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" to="/about">About Me</Link>
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" to="/blog">Blog</Link>
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" to="/projects">Projects</Link>
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" to={{ pathname: "https://singhshashank.co" }} target="_blank" title="Portfolio">Portfolio</Link>
-      </nav>
+    <div className="nav-header">
+      <Navbar bg="dark" collapseOnSelect variant="dark" expand="lg">
+        <Container fluid>  
+          <Navbar.Brand as={Link} to="/">
+            <img
+              alt=""
+              src={process.env.PUBLIC_URL + "/images/logoNav.png"}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{' '}
+            Shashank
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/about">About Me</Nav.Link>
+              <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
+              <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
+              <Nav.Link as={Link} to ={{pathname: "https://singhshashank.co"}} target="_blank" >Portfolio</Nav.Link>
+              {/*<NavDropdown 
+                as={Link} to="/projects"
+                onMouseEnter={() => toggleMenuOpen(true) }
+                onMouseLeave={() => toggleMenuOpen(false) }
+                onToggle={() => { window.location.href = '/projects'}}
+                show={menuOpen} title="Projects" id="collasible-nav-dropdown"
+                >
+
+                <NavDropdown.Item as={Link} to="/project1">Project 1</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="#action/3.2">Project 2</NavDropdown.Item>
+              </NavDropdown>*/}
+            </Nav>
+            <Form inline>
+              <Row>
+                <Col>
+                  <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                </Col>
+                <Col>
+                  <Button variant="outline-success">Search</Button>
+                </Col>
+              </Row>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </div>
-	);
+  );
 }
 
 export default Header;

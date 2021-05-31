@@ -10,6 +10,7 @@ import About from './components/About';
 import Blog from './components/Blog';
 import Projects from './components/Projects';
 import Page404 from './components/Page404';
+import './App.css';
 
 
 function App() {
