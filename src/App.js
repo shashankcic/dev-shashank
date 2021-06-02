@@ -21,7 +21,7 @@ function App() {
   ReactGA.initialize('UA-148397600-2');
   ReactGA.pageview(window.location.pathname + window.location.search);
 
-  const projects = initialProjects.map(project => {
+  const projects = initialProjects.length ? initialProjects.map(project => {
     var ComponentName = Projects[project.name]
     return(
       <Route key={project.id} path={'/projects/'+project.path}>
@@ -29,7 +29,7 @@ function App() {
       </Route>
       )
     }
-  )
+  ) : null;
   return (
     <Router>
       <div>
