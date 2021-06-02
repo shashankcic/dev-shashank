@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Random from '../functions/Random';
+import Random from '../../functions/Random';
+import './styles.css';
 
 function Page404({images}) {
   const [myImage, setMyImage] = useState('');

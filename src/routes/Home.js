@@ -1,16 +1,16 @@
 import React from 'react';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
-function Blog() {
-	return(
-		<div>
+function Home() {
+  return(
+    <div>
       <div>
         <Parallax pages={3} style={{  backgroundColor:"#000" }}>
           <ParallaxLayer
             offset={0}
             speed={0.5}
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#0f8' }}>
-            <h1 className="tracking-in-expand-fwd">I write</h1>
+            <h1 className="tracking-in-expand-fwd">Shashank Singh</h1>
           </ParallaxLayer>
 
 
@@ -24,7 +24,7 @@ function Blog() {
               color: 'white',
               backgroundColor: '#ff6d6d' 
             }}>
-            <h1 >Technical stuff</h1>
+            <h1 >Projects</h1>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -36,12 +36,12 @@ function Blog() {
               alignItems: 'center',
               color: '#0f8' 
             }}>
-            <h1>Medium Widget</h1>
+            <h1>Sup?</h1>
           </ParallaxLayer>
         </Parallax>
       </div>
     </div>
-	);
+  );
 }
 
-export default Blog;
+export default Home;

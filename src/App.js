@@ -5,12 +5,12 @@ import {
   Route
 } from 'react-router-dom';
 import ReactGA from 'react-ga';
-import Home from './components/Home';
-import About from './components/About';
-import Blog from './components/Blog';
-import Project from './components/Project';
+import Home from './routes/Home';
+import About from './routes/About';
+import Blog from './routes/Blog';
+import Project from './routes/Project';
 import Header from './components/Header';
-import Page404 from './components/Page404';
+import Page404 from './routes/Page404';
 import Projects from './components/Projects';
 import initial404Images from './data/initial404Images';
 import initialProjects from './data/initialProjects';
