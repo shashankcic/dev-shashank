@@ -1,11 +1,9 @@
 import React from 'react';
-import Header from './Header';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
 function Home() {
   return(
     <div>
-      <Header/>
       <div>
         <Parallax pages={3} style={{  backgroundColor:"#000" }}>
           <ParallaxLayer

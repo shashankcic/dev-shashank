@@ -9,6 +9,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Blog from './components/Blog';
 import Project from './components/Project';
+import Header from './components/Header';
 import Page404 from './components/Page404';
 import Projects from './components/Projects';
 import initial404Images from './data/initial404Images';
@@ -32,6 +33,7 @@ function App() {
   return (
     <Router>
       <div>
+      <Header />
       <Switch>
         <Route exact path='/'>
           <Home />

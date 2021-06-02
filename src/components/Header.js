@@ -1,5 +1,5 @@
 import React  from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import {
   Navbar,
@@ -18,7 +18,7 @@ function Header() {
     <div className="nav-header">
       <Navbar bg="dark" collapseOnSelect variant="dark" expand="lg">
         <Container fluid>  
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand as={NavLink} exact to="/">
             <img
               alt=""
               src={process.env.PUBLIC_URL + "/images/logoNav.png"}
@@ -31,11 +31,11 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link as={Link} to="/">Home</Nav.Link>
-              <Nav.Link as={Link} to="/about">About Me</Nav.Link>
-              <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
-              <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
-              <Nav.Link as={Link} to ={{pathname: "https://singhshashank.co"}} target="_blank" >Portfolio</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/about">About Me</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/blog">Blog</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/projects">Projects</Nav.Link>
+              <Nav.Link as={NavLink} exact to ={{pathname: "https://singhshashank.co"}} target="_blank" >Portfolio</Nav.Link>
               {/*<NavDropdown 
                 as={Link} to="/projects"
                 onMouseEnter={() => toggleMenuOpen(true) }
