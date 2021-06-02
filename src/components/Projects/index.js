@@ -7,6 +7,9 @@ if(initialProjects.length){
     try{
       Projects[initialProjects[i].name] = require(`./${initialProjects[i].name}`).default;
     }
+    catch(e){
+      
+    }
   }
 }
 
