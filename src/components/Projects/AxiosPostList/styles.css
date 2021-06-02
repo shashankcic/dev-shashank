@@ -1,3 +1,9 @@
-body {
+.axios-post-h1 {
+	padding-top: 20px;
+	padding-bottom: 10px;
 	text-align: center;
+}
+
+.axios-post-div {
+	padding-left: 20px;
 }

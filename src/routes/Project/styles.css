@@ -1,0 +1,25 @@
+.projects {
+	background-color: #000;
+	min-height: 100%;
+	min-height: 100vh;
+}
+
+.projects h1 {
+	padding-top: 2rem;
+	text-align: center;
+	color: #0f8;
+	padding-top: 20px;
+	font-family: Raleway !important;
+}
+
+.projects ul {
+	margin-left: 10px;
+}
+
+.projects .projects-cards {
+	display: flex;
+	flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

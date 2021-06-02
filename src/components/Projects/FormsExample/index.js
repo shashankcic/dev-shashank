@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css';
 
 function FormsExample() {
 	const [userName, setUserName] = useState('');
@@ -20,15 +21,15 @@ function FormsExample() {
 	}
 
 	return(
-		<div>
+		<div className="forms-example">
 			<form onSubmit={handleSubmit} >
 				<div>
 					<label htmlFor="userName">Username</label>
-					<input type="text" name="userName" value={userName} onChange={handleUserNameChange} />
+					<input type="text" name="userName" required value={userName} onChange={handleUserNameChange} />
 				</div>
 				<div>
 					<label htmlFor="comments">Comments</label>
-					<textarea name="comments" value={comments} onChange={handleCommentsChange} />
+					<textarea name="comments" value={comments} required onChange={handleCommentsChange} />
 				</div>
 				<div>
 					<label htmlFor="topic">Username</label>

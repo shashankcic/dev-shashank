@@ -1,0 +1,116 @@
+.project-card {
+	background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.projects-cards-items {
+	display: flex;
+  padding: 1rem;
+  flex: 0 0 25%;
+}
+
+@media screen and (max-width: 40rem) {
+  .projects-cards-items{
+  	width: 100%;
+    min-width: 100%;
+  }
+}
+@media screen and (min-width: 40rem) {
+  .projects-cards-items {	
+  	width: 50%;
+    min-width: 50%;
+  }
+}
+@media screen and (min-width: 60rem) {
+	.projects-cards-items {
+		width: 25%;
+    min-width: 25%;
+	}
+}
+
+.project-card:hover .project-card-image{
+	filter: contrast(100%);
+}
+
+.project-card-content {
+	display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.project-card-image {
+	background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  filter: contrast(70%);
+  //filter: saturate(180%);
+  overflow: hidden;
+  position: relative;
+  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.project-card-image:before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /*16:9 aspect ratio*/
+}
+
+@media(min-width: 40rem) {
+  .project-card-image:before {
+    padding-top: 66.6%; /*3:2 aspect ratio*/
+  }
+}
+
+.project-card-title {
+	color: #696969;
+  font-size: 1.2rem;
+  min-height: 3.6rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.project-card-text {
+	flex: 1 1 auto;
+  font-size: 0.875rem;
+  min-height: 3rem;
+  padding-top: 20px;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-card-buttons {
+  display: flex;
+  flex: 0 0 40%;
+  justify-content: space-between;
+}
+
+.project-card-button {
+	background-color: #333;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+  font-size: 0.875rem;
+  color: #ccc;
+  padding: 0.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.project-card-button:hover {
+  background-color: #ccc;
+  color: #777;
+}

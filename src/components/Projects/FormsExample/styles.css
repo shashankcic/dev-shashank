@@ -1,0 +1,20 @@
+.forms-example {
+	padding: 20px;
+}
+
+.forms-example form {
+	padding: 20px;
+	box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.forms-example form div {
+	padding: 10px;
+}
+
+.forms-example textarea {
+	vertical-align: middle;
+}
+
+.forms-example label {
+	padding-right: 10px;
+}

@@ -20,9 +20,11 @@ function AxiosPostList() {
 
 	return(
 		<div>
-			<h1>List of Posts</h1>
-			{listPost}
-			{errMsg ? <div>{errMsg}</div> : null}
+			<h1 className="axios-post-h1">List of Posts</h1>
+			<div className="axios-post-div">
+				{listPost}
+				{errMsg ? <div>{errMsg}</div> : null}
+			</div>
 		</div>
 	)
 }
