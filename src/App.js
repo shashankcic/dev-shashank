@@ -11,6 +11,7 @@ import Blog from './routes/Blog';
 import Project from './routes/Project';
 import Header from './components/Header';
 import Page404 from './routes/Page404';
+import Search from './routes/Search';
 import Projects from './components/Projects';
 import initial404Images from './data/initial404Images';
 import initialProjects from './data/initialProjects';
@@ -48,6 +49,9 @@ function App() {
           <Project />
         </Route>
         {projects}
+        <Route path='/search'>
+          <Search searchField="" />
+        </Route>
         <Route path="*">
           <Page404 images={initial404Images}/>
         </Route>

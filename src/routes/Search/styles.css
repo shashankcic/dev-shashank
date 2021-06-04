@@ -1,0 +1,40 @@
+.search-bar {
+	margin: auto;
+	width: 30%;
+}
+
+@media screen and (max-width: 320px) {
+	.search-bar{
+		width: 95%;
+	}
+}
+
+@media screen and (min-width: 321px) {
+	.search-bar{
+		width: 80%;
+	}
+}
+
+@media screen and (min-width: 480px) {
+	.search-bar{
+		width: 65%;
+	}
+}
+
+@media screen and (min-width: 640px) {
+	.search-bar{
+		width: 50%;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.search-bar{
+		width: 40%;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.search-bar{
+		width: 30%;
+	}
+}

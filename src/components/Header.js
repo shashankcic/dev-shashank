@@ -1,5 +1,5 @@
-import React  from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState }  from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
 import {
   Navbar,
@@ -11,8 +11,34 @@ import {
   Button,
   FormControl
 } from 'react-bootstrap';
+// import initialProjects from '../data/initialProjects';
 
 function Header() {
+  const [searchField, setSearchField] = useState("");
+
+  // const filteredProjects = initialProjects.filter(
+  //   project => {
+  //     return (
+  //       project
+  //       .title
+  //       .toLowerCase()
+  //       .includes(searchField.toLowerCase()) ||
+  //       project
+  //       .desc
+  //       .toLowerCase()
+  //       .includes(searchField.toLowerCase())
+  //     );
+  //   }
+  // );
+
+  const handleInputChange = e => {
+    setSearchField(e.target.value);
+  }
+
+  const handleSearchClick = e => {
+    setSearchField("");
+  }
+
   // const [menuOpen, toggleMenuOpen] = React.useState(false);
   return(
     <div className="nav-header">
@@ -51,10 +77,12 @@ function Header() {
             <Form inline>
               <Row>
                 <Col>
-                  <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                  <FormControl type="text" placeholder="Search" value={searchField} onChange={handleInputChange} className="mr-sm-2" />
                 </Col>
                 <Col>
-                  <Button variant="outline-success">Search</Button>
+                  <Link to={{ pathname:"/search", searchField }} onClick={handleSearchClick} >
+                    <Button variant="outline-success" >Search</Button>
+                  </Link>
                 </Col>
               </Row>
             </Form>
