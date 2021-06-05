@@ -1,5 +1,6 @@
 import React, { useState }  from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import './styles.css';
 
 import {
   Navbar,
@@ -41,7 +42,7 @@ function Header() {
 
   // const [menuOpen, toggleMenuOpen] = React.useState(false);
   return(
-    <div className="nav-header">
+    <div className="nav-header header">
       <Navbar bg="dark" collapseOnSelect variant="dark" expand="lg">
         <Container fluid>  
           <Navbar.Brand as={NavLink} exact to="/">
@@ -56,12 +57,12 @@ function Header() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
-              <Nav.Link as={NavLink} exact to="/about">About Me</Nav.Link>
-              <Nav.Link as={NavLink} exact to="/blog">Blog</Nav.Link>
-              <Nav.Link as={NavLink} exact to="/projects">Projects</Nav.Link>
-              <Nav.Link as={NavLink} exact to ={{pathname: "https://singhshashank.co"}} target="_blank" >Portfolio</Nav.Link>
+            <Nav className="m-auto">
+              <Nav.Link className="m-auto" as={NavLink} exact to="/">Home</Nav.Link>
+              <Nav.Link className="m-auto" as={NavLink} exact to="/about">About Me</Nav.Link>
+              <Nav.Link className="m-auto" as={NavLink} exact to="/blog">Blog</Nav.Link>
+              <Nav.Link className="m-auto" as={NavLink} exact to="/projects">Projects</Nav.Link>
+              <Nav.Link className="m-auto" as={NavLink} exact to ={{pathname: "https://singhshashank.co"}} target="_blank" >Portfolio</Nav.Link>
               {/*<NavDropdown 
                 as={Link} to="/projects"
                 onMouseEnter={() => toggleMenuOpen(true) }
@@ -76,13 +77,17 @@ function Header() {
             </Nav>
             <Form inline>
               <Row>
-                <Col>
-                  <FormControl type="text" placeholder="Search" value={searchField} onChange={handleInputChange} className="mr-sm-2" />
-                </Col>
-                <Col>
-                  <Link to={{ pathname:"/search", searchField }} onClick={handleSearchClick} >
-                    <Button variant="outline-success" >Search</Button>
-                  </Link>
+                <Col xs={10} sm={8} md={6} lg={12} className="m-auto">
+                  <Row>
+                    <Col xs={9} lg={8} ß>
+                      <FormControl type="text" placeholder="Search" value={searchField} onChange={handleInputChange} className="mr-sm-2" />
+                    </Col>
+                    <Col xs={3} lg={4} >
+                      <Link to={{ pathname:"/search", searchField }} onClick={handleSearchClick} >
+                        <Button variant="outline-success" >Search</Button>
+                      </Link>
+                    </Col>
+                  </Row>
                 </Col>
               </Row>
             </Form>
