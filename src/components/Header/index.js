@@ -1,5 +1,5 @@
 import React, { useState }  from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import './styles.css';
 
 import {
@@ -14,8 +14,9 @@ import {
 } from 'react-bootstrap';
 // import initialProjects from '../data/initialProjects';
 
-function Header() {
+function Header(props) {
   const [searchField, setSearchField] = useState("");
+  const location = useLocation();
 
   // const filteredProjects = initialProjects.filter(
   //   project => {
@@ -57,7 +58,7 @@ function Header() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="m-auto">
+            <Nav className="mr-auto">
               <Nav.Link className="m-auto" as={NavLink} exact to="/">Home</Nav.Link>
               <Nav.Link className="m-auto" as={NavLink} exact to="/about">About Me</Nav.Link>
               <Nav.Link className="m-auto" as={NavLink} exact to="/blog">Blog</Nav.Link>
@@ -75,22 +76,23 @@ function Header() {
                 <NavDropdown.Item as={Link} to="#action/3.2">Project 2</NavDropdown.Item>
               </NavDropdown>*/}
             </Nav>
-            <Form inline>
-              <Row>
-                <Col xs={10} sm={8} md={6} lg={12} className="m-auto">
-                  <Row>
-                    <Col xs={9} lg={8} ß>
-                      <FormControl type="text" placeholder="Search" value={searchField} onChange={handleInputChange} className="mr-sm-2" />
-                    </Col>
-                    <Col xs={3} lg={4} >
-                      <Link to={{ pathname:"/search", searchField }} onClick={handleSearchClick} >
-                        <Button variant="outline-success" >Search</Button>
-                      </Link>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-            </Form>
+            { (location.pathname!=="/search") ? (<Form inline>
+                <Row>
+                  <Col xs={10} sm={8} md={6} lg={12} className="m-auto">
+                    <Row>
+                      <Col xs={9} lg={8} ß>
+                        <FormControl type="text" placeholder="Search" value={searchField} onChange={handleInputChange} className="mr-sm-2" />
+                      </Col>
+                      <Col xs={3} lg={4} >
+                        <Link to={{ pathname:"/search", searchField }} onClick={handleSearchClick} >
+                          <Button variant="outline-success" >Search</Button>
+                        </Link>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </Form>) : null
+            }
           </Navbar.Collapse>
         </Container>
       </Navbar>
