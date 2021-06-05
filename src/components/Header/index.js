@@ -80,7 +80,7 @@ function Header(props) {
                 <Row>
                   <Col xs={10} sm={8} md={6} lg={12} className="m-auto">
                     <Row>
-                      <Col xs={9} lg={8} ß>
+                      <Col xs={9} lg={8}>
                         <FormControl type="text" placeholder="Search" value={searchField} onChange={handleInputChange} className="mr-sm-2" />
                       </Col>
                       <Col xs={3} lg={4} >
