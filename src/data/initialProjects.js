@@ -29,6 +29,16 @@ const initialProjects = [
 		imgName: "Axios Post List API Component",
 		githubLink: "https://github.com/shashankcic/dev-shashank/tree/main/src/components/Projects/AxiosPostList",
 	},
+	{
+		id: 4,
+		name: "HookStateChat",
+		path: "hookstatechat",
+		title: "HookState Chat Component",
+		desc: "This is a component which uses HookState package to create a real-time Chat Component.",
+		imgPath : "HookStateChat.png",
+		imgName: "HookState Chat Component",
+		githubLink: "https://github.com/shashankcic/dev-shashank/tree/main/src/components/Projects/HookStateChat",
+	},
 ]
 
 export default initialProjects;
