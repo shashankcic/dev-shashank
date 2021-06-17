@@ -7,6 +7,7 @@ import './styles.css';
 
 function Search (props) {
 	const [searchFieldLocal, setSearchFieldLocal] = useState(props.location.searchField ? props.location.searchField : "");
+  const [searchShow, setSearchShow] = useState(searchFieldLocal ? true : false);
 
 	const filteredProjects = initialProjects.length ? initialProjects.filter(
     project => {
@@ -25,11 +26,11 @@ function Search (props) {
 
   function searchList(filteredProjects) {
     return (
-      <ul className="projects-cards" style={{listStyleType: "none"}}>
+      <ul className={`${filteredProjects.length ? "projects-cards" : ""}`} style={{listStyleType: "none", padding: "1rem"}}>
         {
           filteredProjects.length ? filteredProjects.map(project =>  (
             <ProjectCard  key={project.id} project={project} />)
-          ) : <h1>No Projects Found!</h1>
+          ) : <h1 style={{padding: "4rem"}}>No Projects Found!</h1>
         }
       </ul>
     );
@@ -37,7 +38,14 @@ function Search (props) {
 
   const handleInputChange = e => {
   	setSearchFieldLocal(e.target.value);
+    if (e.target.value==="") {
+      setSearchShow(false);
+    }
+    else {
+      setSearchShow(true);
+    }
   }
+
 	return(
 		<section className="projects">
       <div>
@@ -55,7 +63,7 @@ function Search (props) {
       </div>
       <div >
         <Scroll >
-          {searchList(filteredProjects)}
+          {searchShow ? searchList(filteredProjects) : null}
         </Scroll>
       </div>
     </section>
