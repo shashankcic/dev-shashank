@@ -2,6 +2,7 @@
 
 This is a small collection of projects made by me to learn the basics and working.
 You can check the project of projects [here.](https://devshashank.xyz)
+Also, check out my portfolio [here.](https://singhshashank.co)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8a3f076c-20ae-4164-b3dd-c974cd521cc4/deploy-status)](https://app.netlify.com/sites/sleepy-bartik-a1ebff/deploys)
 
