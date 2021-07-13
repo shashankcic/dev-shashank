@@ -1,6 +1,6 @@
 # Projects by Shashank
 
-This is a small collection of projects made by me to learn the basics and working. \
+This is a small collection of projects made by me to learn the basics and working of web development. \
 You can check the project of projects [here.](https://devshashank.xyz) \
 Also, check out my portfolio [here.](https://singhshashank.co) \
 While you're at it, make sure to check out my blog [here.](https://singhshashank.medium.com)
