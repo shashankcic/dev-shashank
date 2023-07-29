@@ -39,7 +39,7 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/projects'element={<Project />}/>
         {projects}
-        <Route path='/search' element= {<Search searchField="" />} />
+        <Route path='/search' element= {<Search searchField={""} />} />
         <Route path="*" element={<Page404 images={initial404Images}/>} />
       </Routes>
       </div>

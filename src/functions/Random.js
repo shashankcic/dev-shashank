@@ -1,9 +1,7 @@
-const Random = collection => {
+const Random = (collection) => {
   const totalCount = collection.length;
   const randomElementIndex = Math.floor(Math.random() * totalCount);
-  const randomElement = collection[randomElementIndex];
-
-  return randomElement;
-}
+  return collection[randomElementIndex];
+};
 
 export default Random;

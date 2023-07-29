@@ -45,7 +45,7 @@ function Header(props) {
   return(
     <div className="nav-header header">
       <Navbar bg="dark" collapseOnSelect variant="dark" expand="lg">
-        <Container fluid>  
+        <Container fluid>
           <Navbar.Brand as={NavLink} to="/">
             <img
               alt=""
@@ -63,7 +63,7 @@ function Header(props) {
               <Nav.Link className="m-auto" as={NavLink} to="/about">About Me</Nav.Link>
               <Nav.Link className="m-auto" as={NavLink} to="/blog">Blog</Nav.Link>
               <Nav.Link className="m-auto" as={NavLink} to="/projects">Projects</Nav.Link>
-              <Nav.Link className="m-auto" href="https://singhshashank.com" target="_blank" rel="noopener noreferrer">Portfolio</Nav.Link>
+              <Nav.Link className="m-auto" as={NavLink} to="https://singhshashank.com" target="_blank" rel="noopener noreferrer">Portfolio</Nav.Link>
               {/*<NavDropdown 
                 as={Link} to="/projects"
                 onMouseEnter={() => toggleMenuOpen(true) }
@@ -84,7 +84,7 @@ function Header(props) {
                         <FormControl type="text" placeholder="Search" value={searchField} onChange={handleInputChange} className="mr-sm-2" />
                       </Col>
                       <Col xs={3} lg={4} >
-                        <Link to={{ pathname:"/search", searchField }} onClick={handleSearchClick} >
+                        <Link to="/search" state={searchField} onClick={handleSearchClick}>
                           <Button variant="outline-success" >Search</Button>
                         </Link>
                       </Col>
