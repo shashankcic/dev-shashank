@@ -25,7 +25,7 @@ function Search({ searchField }) {
     : null;
 
   useEffect(() => {
-    setSearchFieldLocal(state ? state : searchFieldLocal);
+    setSearchFieldLocal(state ? state : "");
     setSearchShow(state ? true : false);
   }, [state]);
 
