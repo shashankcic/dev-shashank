@@ -17,7 +17,7 @@ function Home() {
               overflow: "hidden",
             }}
           >
-            <h1 className="tracking-in-expand-fwd">Shashank Singh</h1>
+            <h1 className="heading tracking-in-expand-fwd">Shashank Singh</h1>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -32,7 +32,7 @@ function Home() {
               overflow: "hidden",
             }}
           >
-            <h1>Projects</h1>
+            <h1 className="heading">Projects</h1>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -46,7 +46,7 @@ function Home() {
               overflow: "hidden",
             }}
           >
-            <h1>Sup?</h1>
+            <h1 className="heading">Sup?</h1>
           </ParallaxLayer>
         </Parallax>
       </div>
