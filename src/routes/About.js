@@ -16,7 +16,7 @@ function About() {
               color: "#0f8",
             }}
           >
-            <h1 className="tracking-in-expand-fwd">About Me</h1>
+            <h1 className="tracking-in-expand-fwd heading">About Me</h1>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -30,7 +30,7 @@ function About() {
               backgroundColor: "#ff6d6d",
             }}
           >
-            <h1>Who Am I?</h1>
+            <h1 className="heading">Who Am I?</h1>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -43,7 +43,7 @@ function About() {
               color: "#0f8",
             }}
           >
-            <h1>Links</h1>
+            <h1 className="heading">Links</h1>
           </ParallaxLayer>
         </Parallax>
       </div>

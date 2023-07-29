@@ -11,7 +11,7 @@ function Project() {
     : "No projects found!";
   return (
     <div className="projects">
-      <h1 className="tracking-in-expand-fwd">Projects</h1>
+      <h1 className="heading tracking-in-expand-fwd">Projects</h1>
       <ul className="projects-cards">{projects}</ul>
     </div>
   );

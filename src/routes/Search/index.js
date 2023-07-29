@@ -40,7 +40,7 @@ function Search({ searchField }) {
             <ProjectCard key={project.id} project={project} />
           ))
         ) : (
-          <h1 style={{ padding: "4rem" }}>No Projects Found!</h1>
+          <h1 className="heading" style={{ padding: "4rem" }}>No Projects Found!</h1>
         )}
       </ul>
     );
@@ -58,7 +58,7 @@ function Search({ searchField }) {
   return (
     <section className="projects">
       <div>
-        <h1 className="tracking-in-expand-fwd">Search Projects</h1>
+        <h1 className="heading tracking-in-expand-fwd">Search Projects</h1>
       </div>
       <div className="pa2 search-bar">
         <input

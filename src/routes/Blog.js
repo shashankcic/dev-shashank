@@ -16,7 +16,7 @@ function Blog() {
               color: "#0f8",
             }}
           >
-            <h1 className="tracking-in-expand-fwd">I write</h1>
+            <h1 className="heading tracking-in-expand-fwd">I write</h1>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -30,7 +30,7 @@ function Blog() {
               backgroundColor: "#ff6d6d",
             }}
           >
-            <h1>Technical stuff</h1>
+            <h1 className="heading">Technical stuff</h1>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -43,7 +43,7 @@ function Blog() {
               color: "#0f8",
             }}
           >
-            <h1>Medium Widget</h1>
+            <h1 className="heading">Medium Widget</h1>
           </ParallaxLayer>
         </Parallax>
       </div>
