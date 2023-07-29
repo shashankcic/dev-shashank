@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ProjectCard from '../../components/ProjectCard';
 import Scroll from '../../components/Scroll';
-import { withRouter } from 'react-router-dom';
+import withRouter from '../../functions/WithRouter';
 import initialProjects from '../../data/initialProjects';
 import './styles.css';
 

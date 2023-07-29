@@ -46,7 +46,7 @@ function Header(props) {
     <div className="nav-header header">
       <Navbar bg="dark" collapseOnSelect variant="dark" expand="lg">
         <Container fluid>  
-          <Navbar.Brand as={NavLink} exact to="/">
+          <Navbar.Brand as={NavLink} to="/">
             <img
               alt=""
               src={process.env.PUBLIC_URL + "/images/logoNav.png"}
@@ -59,11 +59,11 @@ function Header(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link className="m-auto" as={NavLink} exact to="/">Home</Nav.Link>
-              <Nav.Link className="m-auto" as={NavLink} exact to="/about">About Me</Nav.Link>
-              <Nav.Link className="m-auto" as={NavLink} exact to="/blog">Blog</Nav.Link>
-              <Nav.Link className="m-auto" as={NavLink} exact to="/projects">Projects</Nav.Link>
-              <Nav.Link className="m-auto" as={NavLink} exact to ={{pathname: "https://singhshashank.co"}} target="_blank" >Portfolio</Nav.Link>
+              <Nav.Link className="m-auto" as={NavLink} to="/">Home</Nav.Link>
+              <Nav.Link className="m-auto" as={NavLink} to="/about">About Me</Nav.Link>
+              <Nav.Link className="m-auto" as={NavLink} to="/blog">Blog</Nav.Link>
+              <Nav.Link className="m-auto" as={NavLink} to="/projects">Projects</Nav.Link>
+              <Nav.Link className="m-auto" href="https://singhshashank.com" target="_blank" rel="noopener noreferrer">Portfolio</Nav.Link>
               {/*<NavDropdown 
                 as={Link} to="/projects"
                 onMouseEnter={() => toggleMenuOpen(true) }
@@ -76,7 +76,7 @@ function Header(props) {
                 <NavDropdown.Item as={Link} to="#action/3.2">Project 2</NavDropdown.Item>
               </NavDropdown>*/}
             </Nav>
-            { (location.pathname!=="/search") ? (<Form inline>
+            { (location.pathname!=="/search") ? (<Form className='d-flex'>
                 <Row>
                   <Col xs={10} sm={8} md={6} lg={12} className="m-auto">
                     <Row>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route
 } from 'react-router-dom';
 import ReactGA from 'react-ga';
@@ -25,9 +25,7 @@ function App() {
   const projects = initialProjects.length ? initialProjects.map(project => {
     var ComponentName = Projects[project.name]
     return(
-      <Route key={project.id} path={'/projects/'+project.path}>
-        <ComponentName />
-      </Route>
+      <Route key={project.id} path={'/projects/'+project.path} element={<ComponentName />} />
       )
     }
   ) : null;
@@ -35,27 +33,15 @@ function App() {
     <Router>
       <div>
       <Header />
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route path='/about'>
-          <About />
-        </Route>
-        <Route path='/blog'>
-          <Blog />
-        </Route>
-        <Route exact path='/projects'>
-          <Project />
-        </Route>
+      <Routes>
+        <Route path='/' element ={<Home />} />
+        <Route path='/about' element={<About />}/>
+        <Route path='/blog' element={<Blog />} />
+        <Route path='/projects'element={<Project />}/>
         {projects}
-        <Route path='/search'>
-          <Search searchField="" />
-        </Route>
-        <Route path="*">
-          <Page404 images={initial404Images}/>
-        </Route>
-      </Switch>
+        <Route path='/search' element= {<Search searchField="" />} />
+        <Route path="*" element={<Page404 images={initial404Images}/>} />
+      </Routes>
       </div>
     </Router>
   );

@@ -8,7 +8,7 @@ function Home() {
         <Parallax pages={3} style={{  backgroundColor:"#000" }}>
           <ParallaxLayer
             offset={0}
-            speed={0.5}
+            speed={0.1}
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#0f8' }}>
             <h1 className="tracking-in-expand-fwd">Shashank Singh</h1>
           </ParallaxLayer>
@@ -16,7 +16,7 @@ function Home() {
 
           <ParallaxLayer
             offset={1}
-            speed={0.5}
+            speed={0.1}
             style={{
               display: 'flex',
               justifyContent: 'center',
@@ -29,7 +29,7 @@ function Home() {
 
           <ParallaxLayer
             offset={2}
-            speed={0.5}
+            speed={0.1}
             style={{
               display: 'flex',
               justifyContent: 'center',
