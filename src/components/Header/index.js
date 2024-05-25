@@ -1,50 +1,27 @@
-import React, { useState }  from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import './styles.css';
+import React, { useState } from 'react';
+import { NavLink, useLocation, Link } from 'react-router-dom';
+import { Navbar, Container, Nav, Form, Row, Col, FormControl, Button } from 'react-bootstrap';
 
-import {
-  Navbar,
-  Nav,
-  Container,
-  Form,
-  Row,
-  Col,
-  Button,
-  FormControl
-} from 'react-bootstrap';
-// import initialProjects from '../data/initialProjects';
-
-function Header(props) {
+function Header() {
   const [searchField, setSearchField] = useState("");
-  const location = useLocation();
+  const { pathname } = useLocation();
 
-  // const filteredProjects = initialProjects.filter(
-  //   project => {
-  //     return (
-  //       project
-  //       .title
-  //       .toLowerCase()
-  //       .includes(searchField.toLowerCase()) ||
-  //       project
-  //       .desc
-  //       .toLowerCase()
-  //       .includes(searchField.toLowerCase())
-  //     );
-  //   }
-  // );
-
-  const handleInputChange = e => {
-    setSearchField(e.target.value);
+  const handleInputChange = ({ target: { value } }) => {
+    setSearchField(value);
   }
 
-  const handleSearchClick = e => {
+  const handleSearchClick = () => {
     setSearchField("");
   }
 
-  // const [menuOpen, toggleMenuOpen] = React.useState(false);
-  return(
+  const handleFormSubmit = (e) => {
+    e.preventDefault(); // Prevent the form from refreshing the page
+    handleSearchClick();
+  };
+
+  return (
     <div className="nav-header header">
-      <Navbar bg="dark" collapseOnSelect variant="dark" expand="lg">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container fluid>
           <Navbar.Brand as={NavLink} to="/">
             <img
@@ -56,43 +33,33 @@ function Header(props) {
             />{' '}
             Shashank
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link className="m-auto" as={NavLink} to="/">Home</Nav.Link>
               <Nav.Link className="m-auto" as={NavLink} to="/about">About Me</Nav.Link>
               <Nav.Link className="m-auto" as={NavLink} to="/blog">Blog</Nav.Link>
               <Nav.Link className="m-auto" as={NavLink} to="/projects">Projects</Nav.Link>
-              <Nav.Link className="m-auto" as={NavLink} to="https://singhshashank.com" target="_blank" rel="noopener noreferrer">Portfolio</Nav.Link>
-              {/*<NavDropdown 
-                as={Link} to="/projects"
-                onMouseEnter={() => toggleMenuOpen(true) }
-                onMouseLeave={() => toggleMenuOpen(false) }
-                onToggle={() => { window.location.href = '/projects'}}
-                show={menuOpen} title="Projects" id="collasible-nav-dropdown"
-                >
-
-                <NavDropdown.Item as={Link} to="/project1">Project 1</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="#action/3.2">Project 2</NavDropdown.Item>
-              </NavDropdown>*/}
+              <Nav.Link className="m-auto" as={NavLink} to="https://devshashank.com" target="_blank" rel="noopener noreferrer">Portfolio</Nav.Link>
             </Nav>
-            { (location.pathname!=="/search") ? (<Form className='d-flex'>
+            {pathname !== "/search" && (
+              <Form className='d-flex' onSubmit={handleFormSubmit}>
                 <Row>
                   <Col xs={10} sm={8} md={6} lg={12} className="m-auto">
                     <Row>
                       <Col xs={9} lg={8}>
                         <FormControl type="text" placeholder="Search" value={searchField} onChange={handleInputChange} className="mr-sm-2" />
                       </Col>
-                      <Col xs={3} lg={4} >
+                      <Col xs={3} lg={4}>
                         <Link to="/search" state={searchField} onClick={handleSearchClick}>
-                          <Button variant="outline-success" >Search</Button>
+                          <Button variant="outline-success" type="submit" >Search</Button>
                         </Link>
                       </Col>
                     </Row>
                   </Col>
                 </Row>
-              </Form>) : null
-            }
+              </Form>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>

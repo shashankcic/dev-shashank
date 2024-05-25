@@ -15,12 +15,13 @@ function FormsExample() {
 	const handleTopicChange = e => {
 		setTopic(e.target.value);
 	}
+
 	const handleSubmit = e => {
 		alert(`The user ${userName} said ${comments} about the topic ${topic}`);
 		e.preventDefault();
 	}
 
-	return(
+	return (
 		<div className="forms-example">
 			<form onSubmit={handleSubmit} >
 				<div>

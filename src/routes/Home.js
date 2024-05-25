@@ -1,55 +1,34 @@
 import React from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
+const layerStyles = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  overflow: "hidden",
+};
+
+const layers = [
+  { offset: 0, speed: 0.1, color: "#0f8", text: "Shashank Singh" },
+  { offset: 1, speed: 0.1, color: "white", backgroundColor: "#ff6d6d", text: "Projects" },
+  { offset: 2, speed: 0.1, color: "#0f8", text: "Sup?" },
+];
+
 function Home() {
   return (
     <div>
-      <div>
-        <Parallax pages={3} style={{ backgroundColor: "#000" }}>
+      <Parallax pages={3} style={{ backgroundColor: "#000" }}>
+        {layers.map((layer, index) => (
           <ParallaxLayer
-            offset={0}
-            speed={0.1}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "#0f8",
-              overflow: "hidden",
-            }}
+            key={index}
+            offset={layer.offset}
+            speed={layer.speed}
+            style={{ ...layerStyles, color: layer.color, backgroundColor: layer.backgroundColor }}
           >
-            <h1 className="heading tracking-in-expand-fwd">Shashank Singh</h1>
+            <h1 className="heading">{layer.text}</h1>
           </ParallaxLayer>
-
-          <ParallaxLayer
-            offset={1}
-            speed={0.1}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "white",
-              backgroundColor: "#ff6d6d",
-              overflow: "hidden",
-            }}
-          >
-            <h1 className="heading">Projects</h1>
-          </ParallaxLayer>
-
-          <ParallaxLayer
-            offset={2}
-            speed={0.1}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "#0f8",
-              overflow: "hidden",
-            }}
-          >
-            <h1 className="heading">Sup?</h1>
-          </ParallaxLayer>
-        </Parallax>
-      </div>
+        ))}
+      </Parallax>
     </div>
   );
 }

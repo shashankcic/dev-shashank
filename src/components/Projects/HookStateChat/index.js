@@ -3,7 +3,7 @@ import FirstPerson from './FirstPerson';
 import SecondPerson from './SecondPerson';
 
 function HookStateChat() {
-	return(
+	return (
 		<div>
 			<FirstPerson />
 			<SecondPerson />

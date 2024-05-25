@@ -2,9 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Random from '../../functions/Random';
 import './styles.css';
+import PropTypes from 'prop-types';
 
-function Page404({images}) {
-  const [myImage, setMyImage] = useState('');
+Page404.propTypes = {
+  images: PropTypes.array.isRequired,
+};
+
+function Page404({ images }) {
+  const [myImage, setMyImage] = useState({ imgPath: '', errTitle: '', errText: '' });
+  const { imgPath, errTitle, errText } = myImage;
 
   useEffect(() => {
     setMyImage(Random(images));
@@ -16,18 +22,22 @@ function Page404({images}) {
 
   return (
     <section className="not-found-section">
-      <div className="site-logo col-lg-3 col-md-3">
-        <Link to='/'>
-          <img src={process.env.PUBLIC_URL + `/images/logoNav.png`} height="50"  alt={`Logo`} />
-          <p style={{textDecoration: "none", color: "#000"}}>{` `}Go Back</p>
-        </Link>
-      </div>
       <div className="image-404">
-        <img src={`${process.env.PUBLIC_URL + myImage.imgPath}`} alt="" onClick={handleChange} />
+        <button onClick={handleChange} className="change-image-button">
+          <img src={`${process.env.PUBLIC_URL + imgPath}`} alt="" />
+        </button>
       </div>
       <div className="text-404">
-        <h4>{myImage.errTitle}</h4>
-        <p>{myImage.errText}</p>
+        <h4>{errTitle}</h4>
+        <p>{errText}</p>
+      </div>
+      <div className="logo-container">
+        <div className="site-logo">
+          <Link to='/' className="logo-link">
+            <img src={process.env.PUBLIC_URL + `/images/logoNav.png`} className="small-logo" alt={`Logo`} />
+            <p>{` `}Go Back</p>
+          </Link>
+        </div>
       </div>
     </section>
   );

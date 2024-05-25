@@ -1,14 +1,14 @@
 import initialProjects from '../../data/initialProjects';
 
-let Projects = {};
+const Projects = {};
 
-if(initialProjects.length){
-  for(let i in initialProjects){
-    try{
+if (initialProjects.length) {
+  for (let i in initialProjects) {
+    try {
       Projects[initialProjects[i].name] = require(`./${initialProjects[i].name}`).default;
     }
-    catch(e){
-      
+    catch (e) {
+
     }
   }
 }

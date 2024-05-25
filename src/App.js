@@ -1,10 +1,6 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ReactGA from 'react-ga';
+import { useEffect } from 'react';
 import Home from './routes/Home';
 import About from './routes/About';
 import Blog from './routes/Blog';
@@ -17,31 +13,32 @@ import initial404Images from './data/initial404Images';
 import initialProjects from './data/initialProjects';
 import './App.css';
 
-
 function App() {
-  ReactGA.initialize('UA-148397600-2');
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  useEffect(() => {
+    ReactGA.initialize('UA-148397600-2');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
-  const projects = initialProjects.length ? initialProjects.map(project => {
-    var ComponentName = Projects[project.name]
-    return(
-      <Route key={project.id} path={'/projects/'+project.path} element={<ComponentName />} />
-      )
-    }
-  ) : null;
+  const projectRoutes = initialProjects.map(({ id, name, path }) => {
+    const ComponentName = Projects[name];
+    return (
+      <Route key={id} path={`/projects/${path}`} element={<ComponentName />} />
+    );
+  });
+
   return (
     <Router>
       <div>
-      <Header />
-      <Routes>
-        <Route path='/' element ={<Home />} />
-        <Route path='/about' element={<About />}/>
-        <Route path='/blog' element={<Blog />} />
-        <Route path='/projects'element={<Project />}/>
-        {projects}
-        <Route path='/search' element= {<Search searchField={""} />} />
-        <Route path="*" element={<Page404 images={initial404Images}/>} />
-      </Routes>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/blog' element={<Blog />} />
+          <Route path='/projects' element={<Project />} />
+          {projectRoutes}
+          <Route path='/search' element={<Search searchField={""} />} />
+          <Route path="*" element={<Page404 images={initial404Images} />} />
+        </Routes>
       </div>
     </Router>
   );
