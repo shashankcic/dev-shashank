@@ -1,65 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import ProjectCard from "../../components/ProjectCard";
 import Scroll from "../../components/Scroll";
 import withRouter from "../../functions/WithRouter";
 import initialProjects from "../../data/initialProjects";
 import "./styles.css";
 import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+
+Search.propTypes = {
+  searchField: PropTypes.string,
+};
 
 function Search({ searchField }) {
-  const [searchFieldLocal, setSearchFieldLocal] = useState(
-    searchField ? searchField : ""
-  );
+  const [searchFieldLocal, setSearchFieldLocal] = useState(searchField ?? "");
   const { state } = useLocation();
-  const [searchShow, setSearchShow] = useState(searchFieldLocal ? true : false);
+  const [searchShow, setSearchShow] = useState(!!searchFieldLocal);
 
-  const filteredProjectsList = initialProjects.length
-    ? initialProjects.filter((project) => {
-        return (
-          project.title
-            .toLowerCase()
-            .includes(searchFieldLocal.toLowerCase()) ||
-          project.desc.toLowerCase().includes(searchFieldLocal.toLowerCase())
-        );
-      })
-    : null;
+  const filteredProjects = useMemo(() => {
+    return initialProjects.filter((project) =>
+      project.title.toLowerCase().includes(searchFieldLocal.toLowerCase()) ||
+      project.desc.toLowerCase().includes(searchFieldLocal.toLowerCase())
+    );
+  }, [searchFieldLocal]);
 
   useEffect(() => {
-    setSearchFieldLocal(state ? state : "");
-    setSearchShow(state ? true : false);
+    setSearchFieldLocal(state || "");
+    setSearchShow(!!state);
   }, [state]);
 
-  function searchList(filteredProjects) {
-    return (
-      <ul
-        className={`${filteredProjects.length ? "projects-cards" : ""}`}
-        style={{ listStyleType: "none", padding: "1rem" }}
-      >
-        {filteredProjects.length ? (
-          filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))
-        ) : (
-          <h1 className="heading" style={{ padding: "4rem" }}>No Projects Found!</h1>
-        )}
-      </ul>
-    );
-  }
-
   const handleInputChange = (e) => {
-    setSearchFieldLocal(e.target.value);
-    if (e.target.value === "") {
-      setSearchShow(false);
-    } else {
-      setSearchShow(true);
-    }
+    const { value } = e.target;
+    setSearchFieldLocal(value);
+    setSearchShow(!!value);
   };
 
   return (
     <section className="projects">
-      <div>
-        <h1 className="heading tracking-in-expand-fwd">Search Projects</h1>
-      </div>
+      <h1 className="heading tracking-in-expand-fwd">Search Projects</h1>
       <div className="pa2 search-bar">
         <input
           className="pa3 tc bb br3 grow b--none bg-lightest-blue"
@@ -70,10 +47,24 @@ function Search({ searchField }) {
           style={{ width: "100%" }}
         />
       </div>
-      <div>
-        <Scroll>{searchShow ? searchList(filteredProjectsList) : null}</Scroll>
-      </div>
+      <Scroll>
+        {searchShow && searchList(filteredProjects)}
+      </Scroll>
     </section>
+  );
+}
+
+function searchList(filteredProjects) {
+  if (filteredProjects.length === 0) {
+    return <h1 className="heading" style={{ padding: "4rem" }}>No Projects Found!</h1>;
+  }
+
+  return (
+    <ul className="projects-cards" style={{ listStyleType: "none", padding: "1rem" }}>
+      {filteredProjects.map((project) => (
+        <ProjectCard key={project.id} project={project} />
+      ))}
+    </ul>
   );
 }
 

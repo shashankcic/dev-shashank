@@ -6,8 +6,8 @@ import "./styles.css";
 function Project() {
   const projects = initialProjects.length
     ? initialProjects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))
+      <ProjectCard key={project.id} project={project} />
+    ))
     : "No projects found!";
   return (
     <div className="projects">

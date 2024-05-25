@@ -41,3 +41,28 @@
   color: #272343;
   text-align: justify;
 }
+
+.logo-link {
+  text-decoration: "none";
+  color: "#000";
+}
+
+.change-image-button {
+  border: "none";
+  background: "none";
+  padding: 0;
+}
+
+.site-logo {
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.small-logo {
+  height: 10vh;
+  width: auto;
+}

@@ -1,52 +1,33 @@
 import React from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
+const layerStyles = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
+
+const layers = [
+  { offset: 0, speed: 0.5, color: "#0f8", text: "I write" },
+  { offset: 1, speed: 0.5, color: "white", backgroundColor: "#ff6d6d", text: "Technical stuff" },
+  { offset: 2, speed: 0.5, color: "#0f8", text: "Medium Widget" },
+];
+
 function Blog() {
   return (
     <div>
-      <div>
-        <Parallax pages={3} style={{ backgroundColor: "#000" }}>
+      <Parallax pages={3} style={{ backgroundColor: "#000" }}>
+        {layers.map((layer, index) => (
           <ParallaxLayer
-            offset={0}
-            speed={0.5}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "#0f8",
-            }}
+            key={index}
+            offset={layer.offset}
+            speed={layer.speed}
+            style={{ ...layerStyles, color: layer.color, backgroundColor: layer.backgroundColor }}
           >
-            <h1 className="heading tracking-in-expand-fwd">I write</h1>
+            <h1 className="heading">{layer.text}</h1>
           </ParallaxLayer>
-
-          <ParallaxLayer
-            offset={1}
-            speed={0.5}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "white",
-              backgroundColor: "#ff6d6d",
-            }}
-          >
-            <h1 className="heading">Technical stuff</h1>
-          </ParallaxLayer>
-
-          <ParallaxLayer
-            offset={2}
-            speed={0.5}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "#0f8",
-            }}
-          >
-            <h1 className="heading">Medium Widget</h1>
-          </ParallaxLayer>
-        </Parallax>
-      </div>
+        ))}
+      </Parallax>
     </div>
   );
 }
